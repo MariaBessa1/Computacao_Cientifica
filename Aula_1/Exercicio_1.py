@@ -1,35 +1,32 @@
+import sys
 import Conversor
 
 
-print("SISTEMA DE CONVERSÃO DE MEDIDAS ")
-print("1 - Pé para Metros")
-print("2 - Metros para Pé")
-print("3 - Jarda para Metros")
-print("4 - Jarda para Pé")
+def tela():
+    print("\nSISTEMA DE CONVERSÃO DE MEDIDAS")
+    print("1 - Pé para Metros")
+    print("2 - Metros para Pé")
+    print("3 - Jarda para Metros")
+    print("4 - Jarda para Pé")
 
 
+while True:
+    tela()
+    opcao = int(input("Escolha uma opção (1 a 4):\n"))
 
-opcao = input("Escolha uma opção (1 a 4): ")
+    if 1 <= opcao <= 4:
+        valor = float(input("Digite o valor que deseja converter: "))
+        Conversor.opcoes_de_conversao(opcao, valor)
+        break
 
+    else:
+        print("\nPor favor, escolha uma opção válida de 1 a 4.")
+        print("Deseja rodar novamente seu analfabeto?")
+        print("0 - Sim, vou ler dessa vez e escolher uma das opções.")
+        print("1 - Não, só queria ver se o programa reconhecia gente idiota.")
 
-valor_usuario = float(input("Digite o valor que deseja converter: "))
+        op = int(input("\nEscolha uma opção (0 ou 1 seu animal): "))
 
-
-if opcao == "1":
-    resultado = Conversor.pes_para_metros(valor_usuario)
-    print(f"\n{valor_usuario} pés equivalem a {resultado:.2f} metros.")
-
-elif opcao == "2":
-    resultado = Conversor.metros_para_pes(valor_usuario)
-    print(f"\n{valor_usuario} metros equivalem a {resultado:.2f} pés.")
-
-elif opcao == "3":
-    resultado = Conversor.jarda_para_metros(valor_usuario)
-    print(f"\n{valor_usuario} jardas equivalem a {resultado:.2f} metros.")
-
-elif opcao == "4":
-    resultado = Conversor.jarda_para_pes(valor_usuario)
-    print(f"\n{valor_usuario} jardas equivalem a {resultado:.2f} pés.")
-
-else:
-    print("\nPor favor, rode o programa novamente e escolha de 1 a 4.")
+        if op == 1:
+            print("Encerrando o programa...")
+            sys.exit()
